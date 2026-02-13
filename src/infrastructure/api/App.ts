@@ -20,7 +20,7 @@ export class App {
 
         const allowedOrigins = [
             'http://localhost:3000',
-            'http://localhost:5173',
+            'http://our-love-story.up.railway.app',
         ];
 
         this.app.use(cors({

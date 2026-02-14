@@ -102,7 +102,7 @@ export class LetterService {
                     const key = this.extractKeyFromFileUrl(attachment.fileUrl);
                     const signedUrlResult = await getSignedDownloadUrl({
                         key,
-                        bucket: process.env.S3_BUCKET || 'out-love-story',
+                        bucket: process.env.S3_BUCKET || 'our-love-story',
                         expiresIn: 3600, // 1 hour
                     });
                     
@@ -137,7 +137,7 @@ export class LetterService {
                 
                 const signedUrlResult = await getSignedDownloadUrl({
                     key: coverKey,
-                    bucket: process.env.S3_BUCKET || 'out-love-story',
+                    bucket: process.env.S3_BUCKET || 'our-love-story',
                     expiresIn: 3600,
                 });
                 coverImageSignedUrl = signedUrlResult.url;
@@ -208,7 +208,7 @@ export class LetterService {
             try {
                 const url = new URL(fileUrl);
                 const pathname = url.pathname;
-                const bucket = process.env.S3_BUCKET || 'out-love-story';
+                const bucket = process.env.S3_BUCKET || 'our-love-story';
                 
                 console.log('  ↳ Parsing as full URL. Pathname:', pathname);
                 
@@ -242,7 +242,7 @@ export class LetterService {
     }
 
     private constructFileUrl(key: string): string {
-        const bucket = process.env.S3_BUCKET || 'out-love-story';
+        const bucket = process.env.S3_BUCKET || 'our-love-story';
         
         // สำหรับ MinIO หรือ S3-compatible storage ที่มี custom endpoint
         if (process.env.S3_ENDPOINT) {
